@@ -1,0 +1,39 @@
+{
+  "name": "file2html-dsv",
+  "version": "0.1.0",
+  "description": "DSV engine for file2html",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "files": [
+    "lib/*.*",
+    "lib/**/*.*"
+  ],
+  "scripts": {
+    "test": "./node_modules/.bin/jest --no-cache --config=./node_modules/file2html-dev-tools/jest/config.json",
+    "lint": "./node_modules/.bin/tslint \"src/**/*.ts\" \"test/unit/**/*.ts\"",
+    "build": "npm run lint && rm -rf lib && ./node_modules/.bin/tsc"
+  },
+  "dependencies": {
+    "file2html": "^0.1.6"
+  },
+  "devDependencies": {
+    "file2html-dev-tools": "git+https://github.com/file2html/file2html-dev-tools.git#v1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/file2html/file2html-dsv.git"
+  },
+  "keywords": [
+    "file2html",
+    "dsv",
+    "csv",
+    "tsv",
+    "reader"
+  ],
+  "author": "webschik",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/file2html/file2html-dsv/issues"
+  },
+  "homepage": "https://github.com/file2html/file2html-dsv#readme"
+}
