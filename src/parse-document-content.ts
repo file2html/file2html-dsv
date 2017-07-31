@@ -19,7 +19,8 @@ export default function parseDocumentContent (fileContent: string, options: {isT
         } else if (ch === newLineDelimiter) {
             if (!isComment && isRowOpened) {
                 isRowOpened = false;
-                content += '</tr>';
+                content += `<td>${ cellTextContent }</td></tr>`;
+                cellTextContent = '';
             }
 
             isComment = false;
@@ -40,6 +41,7 @@ export default function parseDocumentContent (fileContent: string, options: {isT
                 }
 
                 content += `<td>${ cellTextContent }</td>`;
+                cellTextContent = '';
 
                 // -1 because we make i++ each iteration
                 i += delimiterLength - 1;
