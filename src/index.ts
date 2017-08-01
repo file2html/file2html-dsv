@@ -16,7 +16,7 @@ export default class DSVReader extends file2html.Reader {
         const {content} = fileInfo;
         const {byteLength} = content;
         const meta: file2html.FileMetaInformation = Object.assign({
-            fileType: file2html.FileTypes.document,
+            fileType: file2html.FileTypes.spreadsheet,
             mimeType: '',
             name: '',
             size: byteLength,
