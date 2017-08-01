@@ -55,7 +55,7 @@ export default function parseDocumentContent (fileContent: string, options: {isT
     }
 
     if (isRowOpened) {
-        content += '</tr>';
+        content += `<td>${ cellTextContent }</td></tr>`;
     }
 
     return `<table><tbody>${ content }</tbody></table>`;
