@@ -47,7 +47,7 @@ describe('DSVReader', () => {
 
                 expect(cellsCount).toBeGreaterThan(0);
                 expect(cellsCount % 2).toBe(0);
-                expect(rowsCount).toBeGreaterThan(0);
+                expect(rowsCount).toBeGreaterThan(1);
                 expect(rowsCount % 2).toBe(0);
                 expect(styles).toBe('<style></style>');
             });

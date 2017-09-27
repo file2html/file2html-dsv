@@ -1,9 +1,9 @@
-import getNewLineDelimiter from './git-new-line-delimiter';
+import getNewLineDelimiter from './get-new-line-delimiter';
 
 export default function parseDocumentContent (fileContent: string, options: {isTSV: boolean}): string {
     const delimiter: string = options.isTSV ? '\t' : ',';
     const delimiterLength: number = delimiter.length;
-    const newLineDelimiter: string = getNewLineDelimiter(fileContent);
+    const newLineDelimiterPattern: RegExp = getNewLineDelimiter(fileContent);
     const {length} = fileContent;
     let content: string = '';
     let isComment: boolean = false;
@@ -16,7 +16,7 @@ export default function parseDocumentContent (fileContent: string, options: {isT
     while (i < length) {
         if (ch === '#' && !cellTextContent[0]) {
             isComment = true;
-        } else if (ch === newLineDelimiter) {
+        } else if (newLineDelimiterPattern.test(ch)) {
             if (!isComment && isRowOpened) {
                 isRowOpened = false;
                 content += `<td>${ cellTextContent }</td></tr>`;

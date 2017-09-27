@@ -3,13 +3,13 @@
  * @param {string} input
  * @returns {string}
  */
-export default function getNewLineDelimiter (input: string): string {
+export default function getNewLineDelimiter (input: string): RegExp {
     const text: string = input.substr(0, 1024 * 1024);	// max length 1 MB
     const textSections: string[] = text.split('\r');
     const {length} = textSections;
 
     if (length === 1) {
-        return '\n';
+        return /^\n$/;
     }
 
     let newLinesCount: number = 0;
@@ -20,5 +20,5 @@ export default function getNewLineDelimiter (input: string): string {
         }
     }
 
-    return newLinesCount >= (length / 2) ? '\r\n' : '\r';
+    return newLinesCount >= (length / 2) ? /^\r\n$/ : /^\r$/;
 }
