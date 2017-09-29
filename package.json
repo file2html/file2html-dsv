@@ -1,6 +1,6 @@
 {
   "name": "file2html-dsv",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "DSV engine for file2html",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
